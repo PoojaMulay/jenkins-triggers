@@ -21,7 +21,7 @@ pipeline {
             steps{
                 script{
                    withCredentials([string(credentialsId: 'dockerhub-pwd', variable: 'dockerhubpwd')]) {
-                   sh 'docker login -u pooja-user -p ${dockerhubpwd}'
+                   sh 'docker login -u id ec2-user -p ${dockerhubpwd}'
 
 }
                    sh 'docker push javatechie/devops-integration'
