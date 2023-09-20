@@ -21,7 +21,7 @@ pipeline {
             steps{
                 script{
                     withCredentials([string(credentialsId: 'dockeruser', variable: 'docker')]) {
-                    sh 'docker login -u jenkins -p ${docker}'
+                    sh 'docker login -u pooja-user -p ${docker}'
                     }
                     sh 'docker push pooja/jenkins-trigger'
                 }   
