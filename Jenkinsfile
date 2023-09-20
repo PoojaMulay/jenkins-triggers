@@ -13,7 +13,7 @@ pipeline {
         stage('Build docker image'){
             steps{
                 script{
-                    sh 'docker build -t pooja/jenkins-trigger .'
+                    sh 'docker build -t poojam09/jenkins-trigger .'
                 }
             }
         }
@@ -23,7 +23,7 @@ pipeline {
                     withCredentials([string(credentialsId: 'dockeruser', variable: 'dockerpw')]) {
                     sh 'sudo docker login -u pooja-user -p ${docker}'
 
-                    sh 'sudo docker push 675821912463.dkr.ecr.us-east-1.amazonaws.com/dockerimage:latest'
+                    sh 'sudo docker push poojam09/jenkins-trigger:latest'
                     }
                 
                 }   
