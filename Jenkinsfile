@@ -4,7 +4,7 @@ pipeline {
         maven 'Maven_3_5_0'
     }
     stages{
-        stage('Build the Maven'){
+        stage('Build Maven'){
             steps{
                 checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: '8d8dd1e0-e364-4b69-9a80-395a7ea7c71c', url: 'https://github.com/PoojaMulay/jenkins-triggers']])
                 sh 'mvn clean install'
