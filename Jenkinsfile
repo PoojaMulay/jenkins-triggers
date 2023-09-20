@@ -17,6 +17,15 @@ pipeline {
                     sh 'docker build -t pooja/jenkins-trigger .'
                 }
             }
+        stage('push image to hub'){
+            steps{
+                script{
+                    withCredentials([string(credentialsId: 'dockeruser', variable: 'docker')]) {
+                    sh 'docker login -u pooja-user -p ${docker}'
+                    }
+                    sh 'docker push pooja/jenkins-trigger
+                }   
+            }
         }
     }
 }
