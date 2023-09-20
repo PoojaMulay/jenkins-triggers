@@ -10,13 +10,14 @@ pipeline {
                 sh 'mvn clean install'
             }
         }
-    
+    }
         stage('Build docker image'){
             steps{
                 script{
                     sh 'docker build -t pooja/jenkins-trigger .'
                 }
             }
+        }
         stage('push image to hub'){
             steps{
                 script{
@@ -28,5 +29,4 @@ pipeline {
             }
         }
     }
-}
         
