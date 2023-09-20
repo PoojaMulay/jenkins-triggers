@@ -20,7 +20,7 @@ pipeline {
         stage('push image to hub'){
             steps{
                 script{
-                    withCredentials([string(credentialsId: 'dockeruser', variable: 'docker')]) {
+                    withCredentials([string(credentialsId: 'dockeruser', variable: 'dockerpw')]) {
                     sh 'docker login -u pooja-user -p ${docker}'
                     }
                     sh 'docker push pooja/jenkins-trigger'
